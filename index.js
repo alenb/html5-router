@@ -45,10 +45,12 @@ function HTML5Router(opts) {
 
 function defaultPushState(state) {
     window.history.pushState(state.data, state.title, state.url)
+    this.emit('pushState', state);
 }
 
 function defaultReplaceState(state) {
     window.history.replaceState(state.data, state.title, state.url)
+    this.emit('replaceState', state);
 }
 
 function defaultGetState(ev) {
